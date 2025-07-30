@@ -1,3 +1,4 @@
+// 
 const spells = [
   {
     name: "Accio",
@@ -38,6 +39,14 @@ const spells = [
   {
     name: "Obliviate",
     description: "Erases specific memories. Hermione used it on her parents to protect them from Voldemort."
+  },
+  {
+    name: "Rictusempra",
+    description: "The tickling charm. Harry used it during his dueling practice to weaken opponents with laughter."
+  },
+  {
+    name: "Sectumsempra",
+    description: "A dark curse causing deep cuts. Discovered by Harry in Snape’s textbook, used against Draco by accident."
   }
 ];
 
