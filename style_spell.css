@@ -1,0 +1,98 @@
+body {
+  background: url('download (1).jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Georgia', serif;
+  color: white;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.8em;
+  text-shadow: 2px 2px 5px black;
+}
+
+.spell-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner,
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 12px;
+  border: 2px solid gold;
+}
+
+.card-front {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card-back {
+  background-color: rgba(255, 215, 0, 0.9);
+  color: black;
+  transform: rotateY(180deg);
+  font-weight: normal;
+  font-size: 1em;
+  text-align: center;
+}
+.footer {
+    height: 25vh;
+    color: rgb(212, 211, 251);
+    text-align: center;
+}
+
+.social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(212, 211, 251);
+    font-size: 1.8rem;
+    border-radius: 50%;
+    margin: 2rem 1.2rem 2rem 0;
+    color: rgb(212, 211, 251);
+    text-decoration: none;
+    transition: background 0.7s, color 0.7s, transform 0.7s ease-in-out;
+}
+
+.social a:hover {
+    color: #00001b;
+    background-color: rgb(212, 211, 251);
+    box-shadow: 0 0 10px rgb(212, 211, 251);
+    transform: scale(1.05);
+}
