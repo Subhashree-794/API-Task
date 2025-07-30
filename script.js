@@ -1,48 +1,51 @@
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.htxt').classList.add('visible');
+// const spells = [
+  "Accio", "Alohomora", "Expelliarmus", "Lumos", "Nox",
+  "Wingardium Leviosa", "Expecto Patronum", "Avada Kedavra", "Crucio", "Imperio",
+  "Stupefy", "Petrificus Totalus", "Obliviate", "Reducto", "Rictusempra",
+  "Protego", "Silencio", "Incendio", "Aparecium", "Finite Incantatem"
+// ];
+
+const spells = [
+  "Accio", "Alohomora", "Expelliarmus", "Lumos", "Nox",
+  "Wingardium Leviosa", "Expecto Patronum", "Avada Kedavra", "Crucio", "Imperio",
+  "Stupefy", "Petrificus Totalus", "Obliviate", "Reducto", "Rictusempra",
+  "Protego", "Silencio", "Incendio", "Aparecium", "Finite Incantatem"
+];
+// const bgImages =[
+//   "https://i.pinimg.com/736x/41/ce/f1/41cef17d1e74836e86c41794d891f13b.jpg","https://i.pinimg.com/736x/f7/e6/23/f7e623dfb53a3532588208fadb7d98ed.jpg","https://i.pinimg.com/736x/88/b1/be/88b1be840854dbfd6e6f794d1875fb57.jpg"
+// ]
+
+const grid = document.getElementById("spellGrid");
+
+spells.forEach(spell => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const inner = document.createElement("div");
+  inner.classList.add("inner-card");
+
+  const front = document.createElement("div");
+  front.classList.add("front");
+  front.innerText = "Click Me";
+
+  //setting unique background image for each front//
+  front.style.backgroundImage=`url('book.png')`;
+    front.style.backgroundSize="cover";
+    front.style.backgroundPosition="center";
+    
+
+
+  const back = document.createElement("div");
+  back.classList.add("back");
+  back.innerText = spell;
+
+  inner.appendChild(front);
+  inner.appendChild(back);
+  card.appendChild(inner);
+
+  card.addEventListener("click", () => {
+    card.classList.toggle("flipped");
+  });
+
+  grid.appendChild(card);
 });
-
-//characters
-const harry = document.querySelector("#Harry")
-const hermione = document.querySelector("#Hermione")
-
-const hname = document.querySelector("#hname")
-
-const fetchchar = async () => {
-    const res = await fetch('https://potterapi-fedeperin.vercel.app/en/characters')
-    const char = await res.json()
-    console.log(char)
-    harry.src = char[0].image
-    hermione.src = char[1].image
-    hname.innerHTML = char[0].fullName
-}
-fetchchar()
-
-//spells
-const spell = document.body.querySelector(".spell");
-const fetchSpells = async () => {
-    const res = await fetch('https://potterapi-fedeperin.vercel.app/en/spells')
-    const spells = await res.json()
-    const arr = [15, 7, 11, 24, 16, 21, 35, 33, 70]
-    for (const i of arr) {
-        const spellDiv = document.createElement('div');
-        spellDiv.className = 'spell-item';
-        spellDiv.textContent = spells[i].spell;
-        spell.appendChild(spellDiv);
-    }
-}
-fetchSpells()
-
-//books
-const one = document.querySelector("#One")
-const two = document.querySelector("#Two")
-const three = document.querySelector("#Three")
-
-const fetchbooks = async () => {
-    const res = await fetch('https://potterapi-fedeperin.vercel.app/en/books')
-    const books = await res.json()
-    one.src = books[0].cover
-    two.src = books[1].cover
-    three.src = books[2].cover
-}
-fetchbooks()
