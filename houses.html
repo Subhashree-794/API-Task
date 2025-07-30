@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hogwarts House Cards</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+  <style>
+   
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('assets/dinning hall.jpg') center/cover no-repeat;
+      filter: blur(3px);
+      z-index: -1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    nav {
+    background-color: #00001b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #febc21;
+    font-weight: 700;
+    top: 0;
+    font-family: "Crimson Pro", serif;
+}
+
+ul {
+    margin-right: 2rem;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    font-size: 1.5rem;
+}
+
+ul li {
+    padding: 10px;
+    transition: transform 0.5s, background-color 0.5s, color 0.5s ease-in-out;
+    border-radius: 60px;
+}
+
+ul li:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.05);
+    background-color: #febc21;
+    color: #00001b;
+}
+
+.logo img {
+    width: 10vw;
+}
+
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      margin-top: 60px;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 3px 3px 8px black;
+    }
+
+    #cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 100px; 
+      padding: 50px;
+    }
+
+    .card {
+      width: 260px;
+      height: 360px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 14px;
+    }
+
+    .card.flip .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.6);
+      color: white;
+    }
+
+    .card-front img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .house-name {
+      font-size: 1.4em;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px black;
+      margin-top: 8px;
+    }
+
+    .info {
+      font-size: 1em;
+      margin-top: 6px;
+      font-weight: bold;
+    }
+
+    .my-info {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #fffacd;
+    }
+
+  
+    .Gryffindor {
+      background: linear-gradient(135deg, #7f0909, #d3a625);
+    }
+    .Hufflepuff {
+      background: linear-gradient(135deg, #ffdb00, #60605c);
+    }
+    .Ravenclaw {
+      background: linear-gradient(135deg, #0e1a40, #946b2d);
+    }
+    .Slytherin {
+      background: linear-gradient(135deg, #1a472a, #aaaaaa);
+    }
+
+.footer {
+    height: 30vh;
+    margin-top: 60px;
+    background-color: black;
+    color: white;
+    height: 25vh;
+    color: rgb(212, 211, 251);
+    text-align: center;
+}
+.social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(212, 211, 251);
+    font-size: 1.8rem;
+    border-radius: 50%;
+    margin: 2rem 1.2rem 2rem 0;
+    color: rgb(212, 211, 251);
+    text-decoration: none;
+    transition: background 0.7s, color 0.7s, transform 0.7s ease-in-out;
+}
+
+.social a:hover {
+    color: #00001b;
+    background-color: rgb(212, 211, 251);
+    box-shadow: 0 0 10px rgb(212, 211, 251);
+    transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+  
+    <nav>
+        <div class="logo">
+            <img src="assets/logo.png" alt="">
+        </div>
+        <ul>
+            <li>Home</li>
+            <li>Houses</li>
+            <li>Characters</li>
+            <li>Spells</li>
+            <li>Books</li>
+        </ul>
+    </nav>
+  <h1>Hogwarts Houses</h1>
+  <div id="cards-container"></div>
+
+    <div class="footer">
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p>©HarryPotter. All Rights Reserved</p>
+    </div>
+
+  <script>
+    
+    const houses = [
+      { name: "Gryffindor", founder: "Godric Gryffindor", animal: "Lion", colors: ["Red", "Gold"] },
+      { name: "Hufflepuff", founder: "Helga Hufflepuff", animal: "Badger", colors: ["Yellow", "Black"] },
+      { name: "Ravenclaw", founder: "Rowena Ravenclaw", animal: "Raven", colors: ["Blue", "Silver"] },
+      { name: "Slytherin", founder: "Salazar Slytherin", animal: "Snake", colors: ["Green", "Silver"] }
+    ];
+
+    const houseImages = {
+      Gryffindor: "assets/Gryffindor.jpg",
+      Hufflepuff: "assets/huf.jpeg",
+      Ravenclaw: "assets/raven.jpeg",
+      Slytherin: "assets/sly.png"
+    };
+
+    const myInfo = {
+      Gryffindor: " Harry | Brave Wizard",
+      Hufflepuff: " Susan | Loyal Friend",
+      Ravenclaw: " Luna | Smart Thinker",
+      Slytherin: " Draco | Ambitious Leader"
+    };
+
+    const container = document.getElementById('cards-container');
+
+    houses.forEach(house => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <div class="card-inner">
+          <div class="card-front ${house.name}">
+            <img src="${houseImages[house.name] || 'default.jpg'}" alt="${house.name}">
+            <div class="house-name">${house.name}</div>
+            <div class="my-info">${myInfo[house.name]}</div>
+          </div>
+          <div class="card-back ${house.name}">
+            <div class="house-name">${house.name}</div>
+            <div class="info"><b>Founder:</b> ${house.founder}</div>
+            <div class="info"><b>Animal:</b> ${house.animal}</div>
+            <div class="info"><b>Colors:</b> ${house.colors.join(', ')}</div>
+            <div class="my-info">${myInfo[house.name]}</div>
+          </div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => card.classList.toggle('flip'));
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
